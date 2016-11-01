@@ -1,0 +1,43 @@
+{
+  "name": "nativescript-wikitudearchitectview",
+  "version": "1.0.0",
+  "description": "A NativeScript plugin wikitude architect view.",
+  "main": "architectview.js",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "android": "2.3.0",
+      "ios": "2.3.0"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "demo.ios": "npm run preparedemo & cd demo & tns emulate ios",
+    "demo.android": "npm run preparedemo & cd demo & tns livesync android --watch",
+    "preparedemo": "npm run build & cd demo & tns plugin remove nativescript-wikitudearchitectview & tns plugin add .. & tns install",
+    "setup": "cd demo & npm install & cd .. & npm run build & cd demo & tns plugin add .. & cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinhong-/nativescript-wikitudearchitectview"
+  },
+  "keywords": [
+    "NativeScript",
+    "Wikitude"
+  ],
+  "contributors": [
+    {
+      "name": "Jin",
+      "url": "https://github.com/jinhong-"
+    }
+  ],
+  "author": "jin",
+  "license": "MIT",
+  "bugs": "https://github.com/jinhong/nativescript-wikitudearchitectview/issues",
+  "homepage": "https://github.com/jinhong-/nativescript-wikitudearchitectview",
+  "devDependencies": {
+    "tns-core-modules": "^2.3.0",
+    "tns-platform-declarations": "^2.3.0",
+    "typescript": "1.8.10"
+  }
+}
