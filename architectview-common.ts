@@ -1,6 +1,7 @@
 import { View } from "ui/core/view";
 import dependencyObservable = require("ui/core/dependency-observable");
 import proxy = require("ui/core/proxy");
+import { File, knownFolders, path } from "file-system";
 
 export class ArchitectView extends View {
     public static urlStringProperty = new dependencyObservable.Property("urlString", "ArchitectView", new proxy.PropertyMetadata(0, dependencyObservable.PropertyMetadataSettings.AffectsLayout));
@@ -13,6 +14,12 @@ export class ArchitectView extends View {
     }
 
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
+    }
+
+    protected readLicenseKey(){
+        let wikitudeLicenseFile = knownFolders.currentApp().getFile('wikitude.lic');
+        let licenseKey = wikitudeLicenseFile.readTextSync();
+        return licenseKey;
     }
 }
 

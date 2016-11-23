@@ -2,10 +2,7 @@ import { View } from "ui/core/view";
 //import {ContentView} from 'ui/content-view';
 import dependencyObservable = require("ui/core/dependency-observable");
 import proxy = require("ui/core/proxy");
-import { File, knownFolders, path } from "file-system";
 import common = require("./architectview-common");
-
-
 global.moduleMerge(common, exports);
 
 declare var com: any;
@@ -21,9 +18,8 @@ export class ArchitectView extends common.ArchitectView {
 
     public _createUI() {
         this._android = new com.wikitude.architect.ArchitectView(this._context);
-        let wikitudeLicenseFile = knownFolders.currentApp().getFile('wikitude.lic');
-        let licenseKey = wikitudeLicenseFile.readTextSync();
-        let config = new com.wikitude.architect.StartupConfiguration(licenseKey);
+
+        let config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey());
         this._android.onCreate(config);
         this._android.onPostCreate();
         this._android.onResume();
