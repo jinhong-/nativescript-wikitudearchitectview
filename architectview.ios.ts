@@ -1,6 +1,7 @@
 import { View } from "ui/core/view";
 import { ContentView } from 'ui/content-view';
 import common = require("./architectview-common");
+import cameraModule = require("camera");
 import { topmost } from 'ui/frame';
 
 global.moduleMerge(common, exports);
@@ -28,6 +29,8 @@ export class ArchitectView extends common.ArchitectView {
         architectView.delegate = this;
         architectView.setLicenseKey(this.readLicenseKey());
         //topmost().ios.controller.view.addSubview(architectView);
+        
+        //TODO: Request camera permissions before starting
         architectView.startCompletion(config => {
         }, (isRunning, error) => {
 
