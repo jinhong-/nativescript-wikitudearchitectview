@@ -5,9 +5,12 @@
   "main": "architectview.js",
   "typings": "index.d.ts",
   "nativescript": {
-    "platforms": {
-      "android": "2.3.0",
-      "ios": "2.3.0"
+    "id": "com.nativescript.wikitudearchitectview",
+    "tns-android": {
+      "version": "2.4.1"
+    },
+    "tns-ios": {
+      "version": "2.4.0"
     }
   },
   "scripts": {
@@ -36,8 +39,12 @@
   "bugs": "https://github.com/jinhong/nativescript-wikitudearchitectview/issues",
   "homepage": "https://github.com/jinhong-/nativescript-wikitudearchitectview",
   "devDependencies": {
-    "tns-core-modules": "^2.3.0",
-    "tns-platform-declarations": "^2.3.0",
+    "babel-traverse": "6.19.0",
+    "babel-types": "6.19.0",
+    "babylon": "6.14.1",
+    "lazy": "1.0.11",
+    "tns-core-modules": "2.4.0",
+    "tns-platform-declarations": "2.4.0",
     "typescript": "1.8.10"
   }
 }
