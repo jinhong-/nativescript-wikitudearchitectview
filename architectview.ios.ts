@@ -1,12 +1,12 @@
 import { View } from "ui/core/view";
 import { ContentView } from 'ui/content-view';
 import common = require("./architectview-common");
-import cameraModule = require("camera");
 import { topmost } from 'ui/frame';
+import dependencyObservable = require("ui/core/dependency-observable");
 
 global.moduleMerge(common, exports);
 
-declare var CMMotionManager, WTArchitectView, CGRectZero, UIScreen, CGRectMake;
+declare var CMMotionManager, WTArchitectView, CGRectZero, UIScreen, CGRectMake, UIInterfaceOrientation, NSURL, WTFeature_2DTracking;
 
 export class ArchitectView extends common.ArchitectView {
     _motionManager;
@@ -24,13 +24,10 @@ export class ArchitectView extends common.ArchitectView {
     constructor() {
         super();
         this._motionManager = new CMMotionManager();
-        //var rect = CGRectMake((UIScreen.mainScreen.bounds.size.width - 50) / 2, (UIScreen.mainScreen.bounds.size.height - 50) / 2, 50, 50);;
         var architectView = new WTArchitectView(CGRectZero, this._motionManager);
         architectView.delegate = this;
         architectView.setLicenseKey(this.readLicenseKey());
-        //topmost().ios.controller.view.addSubview(architectView);
-        
-        //TODO: Request camera permissions before starting
+        architectView.setShouldRotateToInterfaceOrientation(true, UIInterfaceOrientation.unknown);
         architectView.startCompletion(config => {
         }, (isRunning, error) => {
 
@@ -40,5 +37,10 @@ export class ArchitectView extends common.ArchitectView {
 
     public init() {
 
+    }
+
+    public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
+        var url = NSURL.URLWithString(data.newValue)
+        this._ios.loadArchitectWorldFromURLWithRequiredFeatures(url, WTFeature_2DTracking);
     }
 }
