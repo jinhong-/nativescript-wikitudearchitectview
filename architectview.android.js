@@ -4,7 +4,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var file_system_1 = require("file-system");
 var common = require("./architectview-common");
 global.moduleMerge(common, exports);
 var ArchitectView = (function (_super) {
@@ -28,9 +27,7 @@ var ArchitectView = (function (_super) {
     });
     ArchitectView.prototype._createUI = function () {
         this._android = new com.wikitude.architect.ArchitectView(this._context);
-        var wikitudeLicenseFile = file_system_1.knownFolders.currentApp().getFile('wikitude.lic');
-        var licenseKey = wikitudeLicenseFile.readTextSync();
-        var config = new com.wikitude.architect.StartupConfiguration(licenseKey);
+        var config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey());
         this._android.onCreate(config);
         this._android.onPostCreate();
         this._android.onResume();

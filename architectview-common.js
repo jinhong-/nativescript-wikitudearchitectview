@@ -7,6 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var view_1 = require("ui/core/view");
 var dependencyObservable = require("ui/core/dependency-observable");
 var proxy = require("ui/core/proxy");
+var file_system_1 = require("file-system");
 var ArchitectView = (function (_super) {
     __extends(ArchitectView, _super);
     function ArchitectView() {
@@ -23,6 +24,11 @@ var ArchitectView = (function (_super) {
         configurable: true
     });
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
+    };
+    ArchitectView.prototype.readLicenseKey = function () {
+        var wikitudeLicenseFile = file_system_1.knownFolders.currentApp().getFile('wikitude.lic');
+        var licenseKey = wikitudeLicenseFile.readTextSync();
+        return licenseKey;
     };
     ArchitectView.urlStringProperty = new dependencyObservable.Property("urlString", "ArchitectView", new proxy.PropertyMetadata(0, dependencyObservable.PropertyMetadataSettings.AffectsLayout));
     return ArchitectView;
