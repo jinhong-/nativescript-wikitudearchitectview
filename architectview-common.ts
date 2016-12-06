@@ -16,7 +16,32 @@ export class ArchitectView extends View {
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
     }
 
-    protected readLicenseKey(){
+    protected onUrlLoaded() {
+        var eventData = {
+            eventName: "urlLoaded",
+            object: this
+        };
+        this.notify(eventData);
+    }
+
+    protected onUrlLoadFailed() {
+        var eventData = {
+            eventName: "urlLoadFailed",
+            object: this
+        };
+        this.notify(eventData);
+    }
+
+    protected onUrlInvoked(url: string) {
+        var eventData = {
+            eventName: "urlInvoked",
+            object: this,
+            url: url
+        };
+        this.notify(eventData);
+    }
+
+    protected readLicenseKey() {
         let wikitudeLicenseFile = knownFolders.currentApp().getFile('wikitude.lic');
         let licenseKey = wikitudeLicenseFile.readTextSync();
         return licenseKey;

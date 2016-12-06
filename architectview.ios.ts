@@ -10,7 +10,6 @@ declare var CMMotionManager, WTArchitectView, CGRectZero, UIScreen, CGRectMake, 
 
 export class ArchitectView extends common.ArchitectView {
     _motionManager;
-    //_architectView;
 
     _ios: any;
     get ios(): any {
@@ -37,6 +36,18 @@ export class ArchitectView extends common.ArchitectView {
 
     public init() {
 
+    }
+
+    architectViewDidFinishLoadArchitectWorldNavigation(architectView: any, navigation: any) {
+        this.onUrlLoaded();
+    }
+
+    architectViewDidFailToLoadArchitectWorldNavigationWithError(architectView: any, navigation: any, error: any) {
+        this.onUrlLoadFailed();
+    }
+
+    architectViewInvokedURL(architectView: any, url: any){
+        this.onUrlInvoked(url.absoluteString);
     }
 
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
