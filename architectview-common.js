@@ -25,11 +25,38 @@ var ArchitectView = (function (_super) {
     });
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
     };
+    ArchitectView.prototype.onUrlLoadEvent = function (url) {
+        var eventData = {
+            eventName: ArchitectView.urlLoadedEvent,
+            object: this,
+            url: url
+        };
+        this.notify(eventData);
+    };
+    ArchitectView.prototype.onUrlLoadError = function (error) {
+        var eventData = {
+            eventName: ArchitectView.urlLoadErrorEvent,
+            object: this,
+            error: error
+        };
+        this.notify(eventData);
+    };
+    ArchitectView.prototype.onUrlInvoked = function (url) {
+        var eventData = {
+            eventName: ArchitectView.urlInvokedEvent,
+            object: this,
+            url: url
+        };
+        this.notify(eventData);
+    };
     ArchitectView.prototype.readLicenseKey = function () {
         var wikitudeLicenseFile = file_system_1.knownFolders.currentApp().getFile('wikitude.lic');
         var licenseKey = wikitudeLicenseFile.readTextSync();
         return licenseKey;
     };
+    ArchitectView.urlLoadedEvent = "urlLoaded";
+    ArchitectView.urlLoadErrorEvent = "urlLoadError";
+    ArchitectView.urlInvokedEvent = "urlInvoked";
     ArchitectView.urlStringProperty = new dependencyObservable.Property("urlString", "ArchitectView", new proxy.PropertyMetadata(0, dependencyObservable.PropertyMetadataSettings.AffectsLayout));
     return ArchitectView;
 }(view_1.View));
