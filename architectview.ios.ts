@@ -40,7 +40,7 @@ export class ArchitectView extends common.ArchitectView {
             {
                 architectViewDidFinishLoadArchitectWorldNavigation: (architectView: any, navigation: any) => {
                     if (this._hasError) return;
-                    this.onUrlLoadEvent(navigation.originalURL ? navigation.originalURL.absoluteString : '');
+                    this.onUrlLoad(navigation.originalURL ? navigation.originalURL.absoluteString : '');
                 },
                 architectViewDidFailToLoadArchitectWorldNavigationWithError: (architectView: any, navigation: any, error: any) => {
                     this._hasError = true;

@@ -25,7 +25,7 @@ var ArchitectView = (function (_super) {
     });
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
     };
-    ArchitectView.prototype.onUrlLoadEvent = function (url) {
+    ArchitectView.prototype.onUrlLoad = function (url) {
         var eventData = {
             eventName: ArchitectView.urlLoadedEvent,
             object: this,

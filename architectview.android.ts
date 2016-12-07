@@ -25,14 +25,24 @@ export class ArchitectView extends common.ArchitectView {
         this._android.onResume();
         this._android.registerUrlListener(new com.wikitude.architect.ArchitectView.ArchitectUrlListener({
             urlWasInvoked: (url: string) => {
-                //TODO: Need to fire an event that can be hooked from the other side
-                console.log(`URL Invoked: ${url}`);
+                this.onUrlInvoked(url);
             }
         }))
+        this._android.registerWorldLoadedListener(new com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener({
+            worldLoadFailed: (errorCode, description, failingUrl) => {
+                this.onUrlLoadError({
+                    description: description,
+                    failingUrl: failingUrl
+                });
+            },
+            worldWasLoaded: (url) => {
+                this.onUrlLoad(url);
+            }
+        }));
     }
 
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
-        console.log(`url set ${data.newValue}`);     
+        console.log(`url set ${data.newValue}`);
         this._android.load(data.newValue);
     }
 }

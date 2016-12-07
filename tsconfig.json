@@ -8,7 +8,7 @@
         "noEmitOnError": false
     },
     "files": [
-      "demo/node_modules/tns-core-modules/tns-core-modules.d.ts",
+      "node_modules/tns-core-modules/tns-core-modules.d.ts",
       "architectview-common.ts",
       "architectview.android.ts",
       "architectview.ios.ts"

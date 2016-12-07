@@ -27,7 +27,7 @@ export class ArchitectView extends View {
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
     }
 
-    protected onUrlLoadEvent(url: string) {
+    protected onUrlLoad(url: string) {
         var eventData = {
             eventName: ArchitectView.urlLoadedEvent,
             object: this,

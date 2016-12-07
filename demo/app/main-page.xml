@@ -2,7 +2,7 @@
       xmlns:ar="nativescript-wikitudearchitectview" 
       loaded="pageLoaded">
       <GridLayout>
-        <Button text='hi' tap='tap'></Button>
-        <ar:ArchitectView id="architectView" urlString="http://10.20.30.102:3000" urlLoaded='urlLoaded' urlLoadError='urlLoadError' urlInvoked='urlInvoked'/>
+        <!--<Button text='hi' tap='tap'></Button>-->
+        <ar:ArchitectView id="architectView" urlString="https://www.youtube.com" urlLoaded='urlLoaded' urlLoadError='urlLoadError' urlInvoked='urlInvoked'/>
       </GridLayout>
 </page>

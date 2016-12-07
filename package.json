@@ -6,11 +6,11 @@
   "typings": "index.d.ts",
   "nativescript": {
     "id": "com.nativescript.wikitudearchitectview",
-    "tns-android": {
-      "version": "2.4.1"
-    },
     "tns-ios": {
       "version": "2.4.0"
+    },
+    "tns-android": {
+      "version": "2.4.1"
     }
   },
   "scripts": {

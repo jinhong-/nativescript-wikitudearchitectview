@@ -26,6 +26,7 @@ var ArchitectView = (function (_super) {
         configurable: true
     });
     ArchitectView.prototype._createUI = function () {
+        var _this = this;
         this._android = new com.wikitude.architect.ArchitectView(this._context);
         var config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey());
         this._android.onCreate(config);
@@ -33,7 +34,18 @@ var ArchitectView = (function (_super) {
         this._android.onResume();
         this._android.registerUrlListener(new com.wikitude.architect.ArchitectView.ArchitectUrlListener({
             urlWasInvoked: function (url) {
-                console.log("URL Invoked: " + url);
+                _this.onUrlInvoked(url);
+            }
+        }));
+        this._android.registerWorldLoadedListener(new com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener({
+            worldLoadFailed: function (errorCode, description, failingUrl) {
+                _this.onUrlLoadError({
+                    description: description,
+                    failingUrl: failingUrl
+                });
+            },
+            worldWasLoaded: function (url) {
+                _this.onUrlLoad(url);
             }
         }));
     };

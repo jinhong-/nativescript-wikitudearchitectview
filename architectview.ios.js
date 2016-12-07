@@ -17,7 +17,7 @@ var ArchitectView = (function (_super) {
             architectViewDidFinishLoadArchitectWorldNavigation: function (architectView, navigation) {
                 if (_this._hasError)
                     return;
-                _this.onUrlLoadEvent(navigation.originalURL ? navigation.originalURL.absoluteString : '');
+                _this.onUrlLoad(navigation.originalURL ? navigation.originalURL.absoluteString : '');
             },
             architectViewDidFailToLoadArchitectWorldNavigationWithError: function (architectView, navigation, error) {
                 _this._hasError = true;
