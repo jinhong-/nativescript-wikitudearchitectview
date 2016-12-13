@@ -35,6 +35,7 @@ var ArchitectView = (function (_super) {
         this._android.registerUrlListener(new com.wikitude.architect.ArchitectView.ArchitectUrlListener({
             urlWasInvoked: function (url) {
                 _this.onUrlInvoked(url);
+                return true;
             }
         }));
         this._android.registerWorldLoadedListener(new com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener({

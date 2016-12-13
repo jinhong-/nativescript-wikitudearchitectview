@@ -26,6 +26,7 @@ export class ArchitectView extends common.ArchitectView {
         this._android.registerUrlListener(new com.wikitude.architect.ArchitectView.ArchitectUrlListener({
             urlWasInvoked: (url: string) => {
                 this.onUrlInvoked(url);
+                return true;
             }
         }))
         this._android.registerWorldLoadedListener(new com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener({
