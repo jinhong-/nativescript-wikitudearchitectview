@@ -28,7 +28,7 @@ export class ArchitectView extends View {
     }
 
     protected onUrlLoad(url: string) {
-        var eventData = {
+        let eventData = {
             eventName: ArchitectView.urlLoadedEvent,
             object: this,
             url: url
@@ -37,7 +37,7 @@ export class ArchitectView extends View {
     }
 
     protected onUrlLoadError(error: UrlLoadError) {
-        var eventData = {
+        let eventData = {
             eventName: ArchitectView.urlLoadErrorEvent,
             object: this,
             error: error
@@ -46,7 +46,7 @@ export class ArchitectView extends View {
     }
 
     protected onUrlInvoked(url: string) {
-        var eventData = {
+        let eventData = {
             eventName: ArchitectView.urlInvokedEvent,
             object: this,
             url: url
