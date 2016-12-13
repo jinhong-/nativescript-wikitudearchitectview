@@ -3,6 +3,6 @@
       loaded="pageLoaded">
       <GridLayout>
         <!--<Button text='hi' tap='tap'></Button>-->
-        <ar:ArchitectView id="architectView" urlString="https://www.youtube.com" urlLoaded='urlLoaded' urlLoadError='urlLoadError' urlInvoked='urlInvoked'/>
+        <ar:ArchitectView id="architectView" urlString="http://10.20.30.79:8888" urlLoaded='urlLoaded' urlLoadError='urlLoadError' urlInvoked='urlInvoked'/>
       </GridLayout>
 </page>

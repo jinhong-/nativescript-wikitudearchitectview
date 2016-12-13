@@ -50,7 +50,6 @@ var ArchitectView = (function (_super) {
         }));
     };
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
-        console.log("url set " + data.newValue);
         this._android.load(data.newValue);
     };
     return ArchitectView;

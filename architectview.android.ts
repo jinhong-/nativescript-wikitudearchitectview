@@ -42,7 +42,6 @@ export class ArchitectView extends common.ArchitectView {
     }
 
     public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
-        console.log(`url set ${data.newValue}`);
         this._android.load(data.newValue);
     }
 }
