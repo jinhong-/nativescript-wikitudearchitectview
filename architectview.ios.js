@@ -33,7 +33,7 @@ var ArchitectView = (function (_super) {
             protocols: [WTArchitectViewDelegate]
         }).alloc().init();
         architectView.delegate = this._delegate;
-        architectView.setLicenseKey(this.readLicenseKey());
+        architectView.setLicenseKey(this.readLicenseKey('ios'));
         architectView.setShouldRotateToInterfaceOrientation(true, UIInterfaceOrientation.unknown);
         architectView.startCompletion(function (config) {
         }, function (isRunning, error) {

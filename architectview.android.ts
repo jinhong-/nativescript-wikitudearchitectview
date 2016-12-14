@@ -19,7 +19,7 @@ export class ArchitectView extends common.ArchitectView {
     public _createUI() {
         this._android = new com.wikitude.architect.ArchitectView(this._context);
 
-        let config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey());
+        let config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey('android'));
         this._android.onCreate(config);
         this._android.onPostCreate();
         this._android.onResume();

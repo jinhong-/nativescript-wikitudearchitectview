@@ -58,8 +58,7 @@ export class ArchitectView extends common.ArchitectView {
             }).alloc().init();
 
         architectView.delegate = this._delegate;
-
-        architectView.setLicenseKey(this.readLicenseKey());
+        architectView.setLicenseKey(this.readLicenseKey('ios'));
         architectView.setShouldRotateToInterfaceOrientation(true, UIInterfaceOrientation.unknown);
         architectView.startCompletion(config => {
         }, (isRunning, error) => {

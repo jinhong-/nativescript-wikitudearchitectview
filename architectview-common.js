@@ -49,8 +49,15 @@ var ArchitectView = (function (_super) {
         };
         this.notify(eventData);
     };
-    ArchitectView.prototype.readLicenseKey = function () {
-        var wikitudeLicenseFile = file_system_1.knownFolders.currentApp().getFile('wikitude.lic');
+    ArchitectView.prototype.readLicenseKey = function (suffix) {
+        var appPath = file_system_1.knownFolders.currentApp().path;
+        var licenseFilePath = ['wikitude.lic', ("wikitude." + suffix + ".lic")]
+            .map(function (x) { return file_system_1.path.join(appPath, x); })
+            .filter(function (x) { return file_system_1.File.exists(x); })
+            .shift();
+        if (!licenseFilePath)
+            return null;
+        var wikitudeLicenseFile = file_system_1.File.fromPath(licenseFilePath);
         var licenseKey = wikitudeLicenseFile.readTextSync();
         return licenseKey;
     };

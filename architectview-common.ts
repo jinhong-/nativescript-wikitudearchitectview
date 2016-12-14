@@ -54,8 +54,14 @@ export class ArchitectView extends View {
         this.notify(eventData);
     }
 
-    protected readLicenseKey() {
-        let wikitudeLicenseFile = knownFolders.currentApp().getFile('wikitude.lic');
+    protected readLicenseKey(suffix: string) {
+        var appPath = knownFolders.currentApp().path;
+        var licenseFilePath = ['wikitude.lic', `wikitude.${suffix}.lic`]
+            .map(x => path.join(appPath, x))
+            .filter(x => File.exists(x))
+            .shift();
+        if (!licenseFilePath) return null;
+        let wikitudeLicenseFile = File.fromPath(licenseFilePath);
         let licenseKey = wikitudeLicenseFile.readTextSync();
         return licenseKey;
     }

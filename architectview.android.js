@@ -28,7 +28,7 @@ var ArchitectView = (function (_super) {
     ArchitectView.prototype._createUI = function () {
         var _this = this;
         this._android = new com.wikitude.architect.ArchitectView(this._context);
-        var config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey());
+        var config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey('android'));
         this._android.onCreate(config);
         this._android.onPostCreate();
         this._android.onResume();
