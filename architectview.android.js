@@ -53,6 +53,9 @@ var ArchitectView = (function (_super) {
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
         this._android.load(data.newValue);
     };
+    ArchitectView.prototype.callJavaScript = function (javaScript) {
+        this._android.callJavaScript(javaScript);
+    };
     return ArchitectView;
 }(common.ArchitectView));
 exports.ArchitectView = ArchitectView;

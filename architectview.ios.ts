@@ -73,4 +73,8 @@ export class ArchitectView extends common.ArchitectView {
         var url = NSURL.URLWithString(data.newValue);
         this._ios.loadArchitectWorldFromURLWithRequiredFeatures(url, WTFeature_2DTracking);
     }
+
+    public callJavaScript(javaScript: string) {
+        this._ios.callJavaScript(javaScript);
+    }
 }

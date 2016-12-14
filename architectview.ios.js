@@ -59,6 +59,9 @@ var ArchitectView = (function (_super) {
         var url = NSURL.URLWithString(data.newValue);
         this._ios.loadArchitectWorldFromURLWithRequiredFeatures(url, WTFeature_2DTracking);
     };
+    ArchitectView.prototype.callJavaScript = function (javaScript) {
+        this._ios.callJavaScript(javaScript);
+    };
     return ArchitectView;
 }(common.ArchitectView));
 exports.ArchitectView = ArchitectView;
