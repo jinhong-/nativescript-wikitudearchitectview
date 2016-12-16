@@ -1,1 +1,1 @@
-pod 'WikitudeSDK', :http => 'https://raw.githubusercontent.com/jinhong-/nativescript-wikitudearchitectview/master/CocoaPods/WikitudeSDK.zip'
+pod 'WikitudeSDK', :http => 'https://raw.githubusercontent.com/jinhong-/nativescript-wikitudearchitectview/master/CocoaPods/WikitudeSDK.5.3.1.zip'
