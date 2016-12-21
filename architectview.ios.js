@@ -54,13 +54,19 @@ var ArchitectView = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
+    ArchitectView.prototype.loadUrl = function (urlString) {
         this._hasError = false;
-        var url = NSURL.URLWithString(data.newValue);
+        var url = NSURL.URLWithString(urlString);
         this._ios.loadArchitectWorldFromURLWithRequiredFeatures(url, WTFeature_2DTracking);
+    };
+    ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
+        this.loadUrl(data.newValue);
     };
     ArchitectView.prototype.callJavaScript = function (javaScript) {
         this._ios.callJavaScript(javaScript);
+    };
+    ArchitectView.prototype.reloadUrl = function () {
+        this.loadUrl(this.urlString);
     };
     return ArchitectView;
 }(common.ArchitectView));

@@ -46,7 +46,11 @@ export class ArchitectView extends common.ArchitectView {
         this._android.load(data.newValue);
     }
 
+    public reloadUrl() {
+        this._android.load(this.urlString);
+    }
+
     public callJavaScript(javaScript: string) {
-        this._android.callJavaScript(javaScript);
+        this._android.callJavascript(javaScript);
     }
 }

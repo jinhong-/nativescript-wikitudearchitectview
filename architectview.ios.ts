@@ -67,13 +67,21 @@ export class ArchitectView extends common.ArchitectView {
         this._ios = architectView;
     }
 
-    public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
+    private loadUrl(urlString: string) {
         this._hasError = false;
-        var url = NSURL.URLWithString(data.newValue);
+        var url = NSURL.URLWithString(urlString);
         this._ios.loadArchitectWorldFromURLWithRequiredFeatures(url, WTFeature_2DTracking);
+    }
+
+    public _onUrlStringPropertyChanged(data: dependencyObservable.PropertyChangeData) {
+        this.loadUrl(data.newValue);
     }
 
     public callJavaScript(javaScript: string) {
         this._ios.callJavaScript(javaScript);
+    }
+
+    public reloadUrl() {
+        this.loadUrl(this.urlString);
     }
 }

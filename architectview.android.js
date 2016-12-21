@@ -53,8 +53,11 @@ var ArchitectView = (function (_super) {
     ArchitectView.prototype._onUrlStringPropertyChanged = function (data) {
         this._android.load(data.newValue);
     };
+    ArchitectView.prototype.reloadUrl = function () {
+        this._android.load(this.urlString);
+    };
     ArchitectView.prototype.callJavaScript = function (javaScript) {
-        this._android.callJavaScript(javaScript);
+        this._android.callJavascript(javaScript);
     };
     return ArchitectView;
 }(common.ArchitectView));
