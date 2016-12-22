@@ -61,17 +61,14 @@ var ArchitectView = (function (_super) {
         this._android.callJavascript(javaScript);
     };
     ArchitectView.prototype.onLoaded = function () {
-        console.log('loaded');
         _super.prototype.onLoaded.call(this);
         this._android.onResume();
     };
     ArchitectView.prototype.onUnloaded = function () {
-        console.log('unloaded');
         _super.prototype.onUnloaded.call(this);
         this._android.onPause();
     };
     ArchitectView.prototype._onDetached = function () {
-        console.log('detached');
         this._android.onDestroy();
     };
     return ArchitectView;
