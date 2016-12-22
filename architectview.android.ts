@@ -17,6 +17,7 @@ export class ArchitectView extends common.ArchitectView {
     }
 
     public _createUI() {
+        console.log('_createUI');
         this._android = new com.wikitude.architect.ArchitectView(this._context);
 
         let config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey('android'));
@@ -52,5 +53,19 @@ export class ArchitectView extends common.ArchitectView {
 
     public callJavaScript(javaScript: string) {
         this._android.callJavascript(javaScript);
+    }
+
+    public onLoaded() {
+        super.onLoaded();
+        this._android.onResume();
+    }
+
+    public onUnloaded() {
+        super.onUnloaded();
+        this._android.onPause();
+    }
+
+    public _onDetached() {
+        this._android.onDestroy();
     }
 }

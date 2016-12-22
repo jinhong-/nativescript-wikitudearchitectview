@@ -1,6 +1,6 @@
 {
   "name": "nativescript-wikitudearchitectview",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A NativeScript plugin wikitude architect view.",
   "main": "architectview.js",
   "typings": "index.d.ts",
