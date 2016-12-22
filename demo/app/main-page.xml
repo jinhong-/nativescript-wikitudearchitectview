@@ -1,8 +1,8 @@
 <page xmlns="http://schemas.nativescript.org/tns.xsd" 
       xmlns:ar="nativescript-wikitudearchitectview" 
       loaded="pageLoaded">
-      <GridLayout>
-        <!--<Button text='hi' tap='tap'></Button>-->
+      <GridLayout rows="*, auto">
         <ar:ArchitectView id="architectView" urlString="http://10.20.30.79:8888" urlLoaded='urlLoaded' urlLoadError='urlLoadError' urlInvoked='urlInvoked'/>
+        <Button row="1" text='Test Page' tap='goToTestPage'></Button>
       </GridLayout>
 </page>

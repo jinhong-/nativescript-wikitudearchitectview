@@ -1,0 +1,7 @@
+<page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      xmlns:ar="nativescript-wikitudearchitectview" 
+      loaded="pageLoaded">
+      <StackLayout>
+        <Button text='back' tap='goBack'></Button>
+      </StackLayout>
+</page>
