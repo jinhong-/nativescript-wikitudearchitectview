@@ -56,15 +56,13 @@ export class ArchitectView extends common.ArchitectView {
 
     public onLoaded() {
         super.onLoaded();
+        if(!this._android) return;
         this._android.onResume();
     }
 
     public onUnloaded() {
         super.onUnloaded();
+        if(!this._android) return;
         this._android.onPause();
-    }
-
-    public _onDetached() {
-        this._android.onDestroy();
     }
 }

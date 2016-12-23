@@ -27,7 +27,6 @@ var ArchitectView = (function (_super) {
     });
     ArchitectView.prototype._createUI = function () {
         var _this = this;
-        console.log('_createUI');
         this._android = new com.wikitude.architect.ArchitectView(this._context);
         var config = new com.wikitude.architect.StartupConfiguration(this.readLicenseKey('android'));
         this._android.onCreate(config);
@@ -62,14 +61,15 @@ var ArchitectView = (function (_super) {
     };
     ArchitectView.prototype.onLoaded = function () {
         _super.prototype.onLoaded.call(this);
+        if (!this._android)
+            return;
         this._android.onResume();
     };
     ArchitectView.prototype.onUnloaded = function () {
         _super.prototype.onUnloaded.call(this);
+        if (!this._android)
+            return;
         this._android.onPause();
-    };
-    ArchitectView.prototype._onDetached = function () {
-        this._android.onDestroy();
     };
     return ArchitectView;
 }(common.ArchitectView));
